@@ -46,7 +46,7 @@
 <body>
 
 <header>
-    <marquee> <h1> WELCOME TO KK FUNDA DEVOPS </h1> </marquee>
+    <marquee> <h1> WELCOME TO KK FUNDA DEVOPSs </h1> </marquee>
     <h3>Training | Development | ConsultingUsers</h3>
 </header>
 
