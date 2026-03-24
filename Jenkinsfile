@@ -6,7 +6,7 @@ pipeline
    agent any
    tools
    {
-      maven "maven-3.9.7"
+      maven "maven-3.9.13"
    }
    stages
    {
@@ -15,7 +15,7 @@ pipeline
               steps
               {
                  
-                 git branch: 'dev', url: 'https://github.com/kkdevopsb7/maven-webapplication-project-kkfunda.git'
+                 git branch: 'dev', url: 'https://github.com/lokesh-tatikonda/maven-webapplication-project-kkfunda.git'
               }
            }
            stage('compile')
@@ -39,33 +39,33 @@ pipeline
                 sh "mvn sonar:sonar"
              }
            }   
-           stage('Deploy to nexus')
+          /* stage('Deploy to nexus')
            {
               steps
               {
                 sh "mvn clean deploy"
               }
-           }
+           }*/
            stage('Deploy to tomcat')
            {
               steps
               {
                  sh """
 
-      curl -u kk:password \
---upload-file /var/lib/jenkins/workspace/jio-Declarative-PL-dev/target/maven-web-application.war \
-"http://13.232.234.199:8080/manager/text/deploy?path=/maven-web-application&update=true"
+      curl -u lokesh:lokesh \
+--upload-file /var/lib/jenkins/workspace/DL-PL/target/maven-web-application.war \
+"http://107.20.70.6:8080/manager/text/deploy?path=/maven-web-application&update=true"
           
         """
               }
            }
-           stage('airtel-qa')
+          /* stage('airtel-qa')
            {
               steps
               {
                  build job: 'airtel-qa'  //This down stream job
               }
-           }
+           }*/
 
    }  //stages ending
 
